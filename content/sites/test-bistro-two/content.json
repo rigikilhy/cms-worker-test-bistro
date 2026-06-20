@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-20T14:11:23.763Z",
+  "updatedAt": "2026-06-20T14:22:24.596Z",
   "site": {
     "name": {
       "it": "Test Bistro Two",
       "en": "Test Bistro Two"
     },
     "tagline": {
-      "it": "Salvataggio test Worker alle 2026-06-20T14:11:23.763Z: worker-path-test",
-      "en": "Worker test save at 2026-06-20T14:11:23.763Z: worker-path-test"
+      "it": "Salvataggio test Worker alle 2026-06-20T14:22:24.596Z: cloudflare-pages-test",
+      "en": "Worker test save at 2026-06-20T14:22:24.596Z: cloudflare-pages-test"
     },
     "description": {
       "it": "Secondo sito minimo per testare il Worker condiviso.",
