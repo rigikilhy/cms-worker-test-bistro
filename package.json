@@ -6,5 +6,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "simulate:cms-save": "node scripts/mutate-content.mjs local-test"
+  },
+  "devDependencies": {
+    "wrangler": "^4.100.0"
   }
 }
