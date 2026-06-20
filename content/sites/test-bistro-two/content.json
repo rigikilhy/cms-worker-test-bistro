@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-20T00:00:00.000Z",
+  "site": {
+    "name": {
+      "it": "Test Bistro Two",
+      "en": "Test Bistro Two"
+    },
+    "tagline": {
+      "it": "Una pagina semplice con menu finto.",
+      "en": "A simple page with a fake menu."
+    },
+    "description": {
+      "it": "Secondo sito minimo per testare il Worker condiviso.",
+      "en": "Second tiny site for testing the shared Worker."
+    },
+    "phone": "+39 011 000 0002",
+    "email": "bistro-two@example.test",
+    "address": "Corso Test 2, Torino"
+  },
+  "openingHours": [
+    {
+      "dayKey": "wednesday",
+      "lunchOpen": "12:30",
+      "lunchClose": "14:30",
+      "dinnerOpen": "18:30",
+      "dinnerClose": "22:30",
+      "closed": false,
+      "sortOrder": 3
+    },
+    {
+      "dayKey": "sunday",
+      "closed": true,
+      "sortOrder": 7,
+      "note": {
+        "it": "Riposo del test.",
+        "en": "Test rest day."
+      }
+    }
+  ],
+  "menuCategories": [
+    {
+      "id": "bowls",
+      "title": {
+        "it": "Ciotole",
+        "en": "Bowls"
+      },
+      "description": {
+        "it": "Menu casuale per prove di deploy.",
+        "en": "Random menu for deploy tests."
+      },
+      "sortOrder": 1,
+      "items": [
+        {
+          "id": "bowl-gamma",
+          "name": {
+            "it": "Ciotola Gamma",
+            "en": "Gamma Bowl"
+          },
+          "description": {
+            "it": "Riso, verdure e parole segnaposto.",
+            "en": "Rice, vegetables, and placeholder words."
+          },
+          "price": "9.50",
+          "available": true,
+          "sortOrder": 1
+        },
+        {
+          "id": "cake-delta",
+          "name": {
+            "it": "Torta Delta",
+            "en": "Delta Cake"
+          },
+          "description": {
+            "it": "Dolce immaginario con crema di test.",
+            "en": "Imaginary dessert with test cream."
+          },
+          "price": "5.00",
+          "available": true,
+          "sortOrder": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "cms-worker-test-bistro",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "simulate:cms-save": "node scripts/mutate-content.mjs local-test"
+  }
+}

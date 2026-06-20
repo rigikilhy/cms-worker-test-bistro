@@ -1,0 +1,38 @@
+name: Simulate CMS Save
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: Short text to write into the CMS JSON
+        required: false
+        default: manual-test
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/mutate-content.mjs "${{ inputs.note }}"
+      - run: |
+          git config user.name "cms-test-bot"
+          git config user.email "cms-test-bot@users.noreply.github.com"
+          git add content/sites/test-bistro-two/content.json
+          git commit -m "Simulate CMS save for test-bistro-two" || exit 0
+          git push
+      - name: Request debounced deploy
+        run: |
+          curl -fsS -X POST "$CMS_DEPLOY_WORKER_URL/v1/deploy" \
+            -H "content-type: application/json" \
+            -H "authorization: Bearer $CMS_DEPLOY_WORKER_TOKEN" \
+            --data '{"clientId":"test-bistro-two","reason":"cms-save"}'
+        env:
+          CMS_DEPLOY_WORKER_URL: ${{ secrets.CMS_DEPLOY_WORKER_URL }}
+          CMS_DEPLOY_WORKER_TOKEN: ${{ secrets.CMS_DEPLOY_WORKER_TOKEN }}
