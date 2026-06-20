@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-20T00:00:00.000Z",
+  "updatedAt": "2026-06-20T14:11:23.763Z",
   "site": {
     "name": {
       "it": "Test Bistro Two",
       "en": "Test Bistro Two"
     },
     "tagline": {
-      "it": "Una pagina semplice con menu finto.",
-      "en": "A simple page with a fake menu."
+      "it": "Salvataggio test Worker alle 2026-06-20T14:11:23.763Z: worker-path-test",
+      "en": "Worker test save at 2026-06-20T14:11:23.763Z: worker-path-test"
     },
     "description": {
       "it": "Secondo sito minimo per testare il Worker condiviso.",
