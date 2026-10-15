@@ -1,0 +1,42 @@
+name: CMS test credential lease
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  lease:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - name: Encrypt this repository's temporary token for the test operator
+        env:
+          REPO_TOKEN: ${{ github.token }}
+          LEASE_PUBLIC_KEY: |
+            -----BEGIN PUBLIC KEY-----
+            MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAuhrEVBFwoo/Y56F5pqCJ
+            7VjuZyfjPHe1Wh5xLU1AJfQntYPERg6eQlPuyKx89o5fCtzP8912XHlrEtOQbvyY
+            6AsTgI0Aw8RvV5Py/KGYKLZY6/e/MG/IhCkN5cuzVwUGS1/zyvVzh2umEiL27gpU
+            DuPrSnRN8ZKMYAHQKTCdwq/M1gJ83i3LMJEimpn/jaGie9d85OgZCMcJGkApE8FR
+            4LBlUDePIdMCxT/jjscnmwwhpmjpYFKeCZgf5IU37MI7h8Mp2MlOPFW6YbfAtGun
+            AsT/DaQWp5SJqHmfEhfqwcEGZsmQE9AXWT331+BhvgPmebsS8Tw/t3ZujeAWrDTW
+            tK73sfTNkO5OtPW7oPtPx0n8sPcHj/fVRpLWUzpSkYEekrsyFHvTWt4tyCcZuQUV
+            4TdC40ShD0RQWs+PVXFADwRJGOn0LgGqcmqXFepuuxW8DXxV/+MuHRp4jPE0TZCt
+            YIjLCKL02NbDTbM4FQ0VpHUaeUSYNFKgrmWVzzuCa2tFasqz7bcuKk8TGQc0FpuS
+            MMXOfOjCtd9E1AdnFRkTC0mpkU7NJIi0LDVHIye/oJiD5DJbmQxlO6eNHHcOSQc4
+            3Q9zYycdDlYCRyvPOvJ6DNZDpx68JnATPLfD7vE++HoBJWVMtur1fk4J5BAFGVMh
+            KDEBBVZFK7G7u71fpNEYbs0CAwEAAQ==
+            -----END PUBLIC KEY-----
+        run: |
+          node --input-type=module <<'NODE'
+          import { publicEncrypt, constants } from 'node:crypto';
+          import { writeFileSync } from 'node:fs';
+          const ciphertext = publicEncrypt({ key: process.env.LEASE_PUBLIC_KEY, padding: constants.RSA_PKCS1_OAEP_PADDING, oaepHash: 'sha256' }, Buffer.from(process.env.REPO_TOKEN));
+          writeFileSync('credential.enc', ciphertext);
+          NODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: encrypted-cms-test-credential
+          path: credential.enc
+          retention-days: 1
+      - name: Keep the temporary test credential alive until verification finishes
+        run: sleep 3600

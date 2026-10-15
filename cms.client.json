@@ -1,0 +1,13 @@
+{
+  "clientId": "test-bistro-two",
+  "kvKey": "client:test-bistro-two:config",
+  "config": {
+    "deployTokenHash": "REPLACE_WITH_SHA256_OF_PER_CLIENT_TOKEN",
+    "repositoryOwner": "rigikilhy",
+    "repositoryName": "cms-worker-test-bistro",
+    "branch": "main",
+    "workflowId": "deploy-pages.yml",
+    "publishLimit": 5,
+    "debounceSeconds": 30
+  }
+}

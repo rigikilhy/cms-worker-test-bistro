@@ -1,5 +1,7 @@
-node_modules
-out
-.env
+node_modules/
+.next/
+out/
+.wrangler/
+*.tsbuildinfo
 .env*
-*.log
+.credentials/
