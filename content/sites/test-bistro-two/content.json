@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-15T19:36:51.645Z",
+  "updatedAt": "2026-06-20T14:22:24.596Z",
   "site": {
     "name": {
       "it": "Test Bistro Two",
@@ -16,13 +16,7 @@
     },
     "phone": "+39 011 000 0002",
     "email": "bistro-two@example.test",
-    "address": {
-      "streetAddress": "Corso Test 2",
-      "postalCode": "10100",
-      "addressLocality": "Torino",
-      "addressRegion": "TO",
-      "addressCountry": "IT"
-    }
+    "address": "Corso Test 2, Torino"
   },
   "openingHours": [
     {
@@ -60,8 +54,8 @@
         {
           "id": "bowl-gamma",
           "name": {
-            "it": "Ciotola Gamma [CMS-B15]",
-            "en": "Gamma Bowl [CMS-B15]"
+            "it": "Ciotola Gamma",
+            "en": "Gamma Bowl"
           },
           "description": {
             "it": "Riso, verdure e parole segnaposto.",
