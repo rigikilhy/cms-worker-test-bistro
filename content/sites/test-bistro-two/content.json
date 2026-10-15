@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-20T14:22:24.596Z",
+  "updatedAt": "2026-10-15T19:36:51.645Z",
   "site": {
     "name": {
       "it": "Test Bistro Two",
@@ -60,8 +60,8 @@
         {
           "id": "bowl-gamma",
           "name": {
-            "it": "Ciotola Gamma",
-            "en": "Gamma Bowl"
+            "it": "Ciotola Gamma [CMS-B15]",
+            "en": "Gamma Bowl [CMS-B15]"
           },
           "description": {
             "it": "Riso, verdure e parole segnaposto.",
